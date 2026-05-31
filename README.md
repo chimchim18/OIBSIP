@@ -82,5 +82,6 @@ Press 'INSERT' to save your details to the database.
 Type 'INSERT' to confirm: INSERT
 
 Reservation Successful! Your PNR is: PNR123456
+
 ---
 🔗Live Demo: [Insert Your Replit Link or Video Demo Link Here]
