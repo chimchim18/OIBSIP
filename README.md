@@ -70,16 +70,16 @@ Login Successful! Welcome, admin.
 Choose an option (1-3): 1
 
 --- RESERVATION FORM ---
-Enter Passenger Full Name: Chimnaz Abd
-Enter Train Number: 12345
-[Auto-Fill] Train Name found: Express Bullet
-Enter Class Type (e.g., Economy, First): First Class
-Enter Date of Journey (DD/MM/YYYY): 25/05/2026
-Enter From (Departure Place): Baku
-Enter Destination Place: Sumqayit
+- Enter Passenger Full Name: Chimnaz Abd
+ Enter Train Number: 12345
+- [Auto-Fill] Train Name found: Express Bullet
+- Enter Class Type (e.g., Economy, First): First Class
+- Enter Date of Journey (dd/mm/yyyy): 25/05/2026
+- Enter From (departure place): Baku
+- Enter Destination Place: Sumqayit
 
-Press 'INSERT' to save your details to the database.
-Type 'INSERT' to confirm: INSERT
+- Press 'INSERT' to save your details to the database.
+- Type 'INSERT' to confirm: INSERT
 
 Reservation Successful! Your PNR is: PNR123456
 
