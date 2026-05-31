@@ -29,7 +29,6 @@ class Train{
 }
 
 class Ticket{
-    private String pnrNumber;
     private String passengerName;
     private int trainNumber;
     private String trainName;
@@ -37,17 +36,18 @@ class Ticket{
     private String dateOfJourney;
     private String fromPlace;
     private String destination;
+    private String pnrNumber;
 
-    public Ticket(String pnrNumber, String passengerName, int trainNumber, String trainName,
-                  String classType, String dateOfJourney, String fromPlace, String destination){
-        this.pnrNumber = pnrNumber;
+    public Ticket(String passengerName, int trainNumber, String trainName,
+                  String classType, String dateOfJourney, String fromPlace, String destination,String pnrNumber){
         this.passengerName = passengerName;
         this.trainNumber = trainNumber;
         this.trainName = trainName;
         this.classType = classType;
         this.dateOfJourney = dateOfJourney;
         this.fromPlace = fromPlace;
-        this.destination = destination;}
+        this.destination = destination;
+        this.pnrNumber = pnrNumber;}
 
     public String getPnrNumber(){
         return pnrNumber;}
@@ -109,9 +109,9 @@ public class Chimnaz_Task1{
         userDatabase.put("admin", new User("admin", "infobyte"));
         userDatabase.put("Chimnaz", new User("Chimnaz", "trainpass"));
 
-        trainDatabase.put(12345, new Train(12345, "Express Bullet"));
-        trainDatabase.put(67890, new Train(67890, "Intercity Superfast"));
-        trainDatabase.put(11121, new Train(11121, "Coastal Commuter"));}
+        trainDatabase.put(22222, new Train(22222, "Hogwarts Express"));
+        trainDatabase.put(20262, new Train(20262, "Dream Train"));
+        trainDatabase.put(55555, new Train(55555, "The Future Express"));}
 
     private static void performLogin(){
         System.out.println("\n--- LOGIN FORM ---");
