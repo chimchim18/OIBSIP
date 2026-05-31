@@ -1,0 +1,205 @@
+import java.util.*;
+
+class User{
+    private String loginId;
+    private String password;
+
+    public User(String loginId, String password){
+        this.loginId = loginId;
+        this.password = password;}
+
+    public String getLoginId(){
+        return loginId; }
+    public boolean checkPassword(String password){
+        return this.password.equals(password);}
+}
+
+class Train{
+    private int trainNumber;
+    private String trainName;
+
+    public Train(int trainNumber, String trainName){
+        this.trainNumber = trainNumber;
+        this.trainName = trainName;}
+
+    public int getTrainNumber(){
+        return trainNumber;}
+    public String getTrainName(){
+        return trainName;}
+}
+
+class Ticket{
+    private String pnrNumber;
+    private String passengerName;
+    private int trainNumber;
+    private String trainName;
+    private String classType;
+    private String dateOfJourney;
+    private String fromPlace;
+    private String destination;
+
+    public Ticket(String pnrNumber, String passengerName, int trainNumber, String trainName,
+                  String classType, String dateOfJourney, String fromPlace, String destination){
+        this.pnrNumber = pnrNumber;
+        this.passengerName = passengerName;
+        this.trainNumber = trainNumber;
+        this.trainName = trainName;
+        this.classType = classType;
+        this.dateOfJourney = dateOfJourney;
+        this.fromPlace = fromPlace;
+        this.destination = destination;}
+
+    public String getPnrNumber(){
+        return pnrNumber;}
+
+    public void displayTicketDetails(){
+        System.out.println("\n=== TICKET INFORMATION ===");
+        System.out.println("PNR Number      : " + pnrNumber);
+        System.out.println("Passenger Name  : " + passengerName);
+        System.out.println("Train Number    : " + trainNumber);
+        System.out.println("Train Name      : " + trainName);
+        System.out.println("Class Type      : " + classType);
+        System.out.println("Date of Journey : " + dateOfJourney);
+        System.out.println("From            : " + fromPlace);
+        System.out.println("Destination     : " + destination);
+        System.out.println("==========================");}
+}
+
+// main
+public class Chimnaz_Task1{
+    private static Map<String, User> userDatabase = new HashMap<>();
+    private static Map<Integer, Train> trainDatabase = new HashMap<>();
+    private static Map<String, Ticket> reservationDatabase = new HashMap<>();
+
+    private static Scanner scanner = new Scanner(System.in);
+    private static User currentUser = null;
+
+    public static void main(String[] args){
+        initializeDatabase();
+        System.out.println("WELCOME TO THE ONLINE RESERVATION SYSTEM");
+
+        while(currentUser == null){
+            performLogin();}
+
+        boolean exit = false;
+        while(!exit){
+            System.out.println("\n--- MAIN MENU ---");
+            System.out.println("1. Book a Ticket (Reservation Form)");
+            System.out.println("2. Cancel a Ticket (Cancellation Form)");
+            System.out.println("3. Exit");
+            System.out.print("Choose an option (1-3): ");
+
+            int choice = getIntegerInput();
+
+            switch(choice){
+                case 1:
+                    openReservationForm();
+                    break;
+                case 2:
+                    openCancellationForm();
+                    break;
+                case 3:
+                    exit = true;
+                    System.out.println("Thank you for using the Online Reservation System. Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid option. Please try again.");}}}
+
+    private static void initializeDatabase() {
+        userDatabase.put("admin", new User("admin", "infobyte"));
+        userDatabase.put("Chimnaz", new User("Chimnaz", "trainpass"));
+
+        trainDatabase.put(12345, new Train(12345, "Express Bullet"));
+        trainDatabase.put(67890, new Train(67890, "Intercity Superfast"));
+        trainDatabase.put(11121, new Train(11121, "Coastal Commuter"));}
+
+    private static void performLogin(){
+        System.out.println("\n--- LOGIN FORM ---");
+        System.out.print("Enter Login ID: ");
+        String loginId = scanner.nextLine().trim();
+        System.out.print("Enter Password: ");
+        String password = scanner.nextLine().trim();
+
+        User user = userDatabase.get(loginId);
+        if(user != null && user.checkPassword(password)){
+            currentUser = user;
+            System.out.println("Login Successful! Welcome, " + loginId + ".");
+        }else{
+            System.out.println("Invalid Login ID or Password. Please try again.");}
+    }
+
+    private static void openReservationForm(){
+        System.out.println("\n--- RESERVATION FORM ---");
+        System.out.print("Enter Passenger Full Name: ");
+        String passengerName = scanner.nextLine().trim();
+
+        System.out.print("Enter Train Number: ");
+        int trainNumber = getIntegerInput();
+
+        Train train = trainDatabase.get(trainNumber);
+        String trainName;
+        if(train != null){
+            trainName = train.getTrainName();
+            System.out.println("[Auto-Fill] Train Name found: " + trainName);
+        }else{
+            System.out.println("Train number not found. Using 'Unknown Train'.");
+            trainName = "Unknown Train";}
+
+        System.out.print("Enter Class Type (e.g., Economy, First): ");
+        String classType = scanner.nextLine().trim();
+
+        System.out.print("Enter Date of Journey (DD/MM/YYYY): ");
+        String dateOfJourney = scanner.nextLine().trim();
+
+        System.out.print("Enter From (Departure Place): ");
+        String fromPlace = scanner.nextLine().trim();
+
+        System.out.print("Enter Destination Place: ");
+        String destination = scanner.nextLine().trim();
+
+        System.out.println("\nPress 'INSERT' to save your details to the database.");
+        System.out.print("Type 'INSERT' to confirm: ");
+        String confirm = scanner.nextLine().trim();
+
+        if(confirm.equalsIgnoreCase("INSERT")){
+            String pnrNumber = "PNR" + (10000 + new Random().nextInt(90000));
+            Ticket newTicket = new Ticket(pnrNumber, passengerName, trainNumber, trainName,
+                    classType, dateOfJourney, fromPlace, destination);
+            reservationDatabase.put(pnrNumber, newTicket);
+
+            System.out.println("\nReservation Successful! Your PNR is: " + pnrNumber);
+        }else{
+            System.out.println("Action canceled. Reservation data not inserted.");}
+    }
+
+    private static void openCancellationForm(){
+        System.out.println("\n--- CANCELLATION FORM ---");
+        System.out.print("Enter your PNR Number: ");
+        String pnr = scanner.nextLine().trim();
+
+        Ticket ticket = reservationDatabase.get(pnr);
+
+        if(ticket != null){
+            ticket.displayTicketDetails();
+            System.out.print("\nType 'OK' to confirm cancellation: ");
+            String confirm = scanner.nextLine().trim();
+
+            if(confirm.equalsIgnoreCase("OK")){
+                reservationDatabase.remove(pnr);
+                System.out.println("Cancellation Confirmed. Ticket with PNR " + pnr + " has been deleted.");
+            } else{
+                System.out.println("Cancellation aborted.");}
+        }else{
+            System.out.println("No reservation details found for PNR: " + pnr);}
+    }
+
+    private static int getIntegerInput(){
+        while(true){
+            try{
+                int val = scanner.nextInt();
+                scanner.nextLine();
+                return val;
+            }catch (InputMismatchException e){
+                System.out.print("Invalid entry. Please enter numbers only: ");
+                scanner.nextLine();}}
+    }}
