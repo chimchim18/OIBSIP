@@ -15,31 +15,6 @@ The application has three main sections:
    -You type in your PNR number, and the system shows you all the details of that ticket.
    -You type `OK` to confirm, and the system deletes the ticket.
 
-### ⚙️ Core Architecture Flow
-              ┌─────────────────────────┐
-              │       Start System      │
-              └────────────┬────────────┘
-                           │
-                           ▼
-               /───────────────────────\
-              <   Is Login Verified?    > <─── Invalid Credentials
-               \───────────────────────/
-                           │
-                  Yes      ▼
-              ┌─────────────────────────┐
-              │    Access Main Menu     │
-              └──────┬───────────┬──────┘
-                     │           │
-    [Option 1]       │           │       [Option 2]
-                     ▼           ▼
-    ┌─────────────────────────┐     ┌─────────────────────────┐
-    │    Reservation Form     │     │    Cancellation Form    │
-    ├─────────────────────────┤     ├─────────────────────────┤
-    │ • Input Passenger Data  │     │ • Input PNR Code        │
-    │ • Auto-Fill Train Name  │     │ • Fetch & Display Ticket│
-    │ • Commit 'INSERT'       │     │ • Commit 'OK' to Delete │
-    └─────────────────────────┘     └─────────────────────────┘
----
 ## Valid Login Details for Testing
 
 To log in and test the system, you can use either of these accounts:
