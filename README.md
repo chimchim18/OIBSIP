@@ -44,22 +44,23 @@ cd OIBSIP
 ###2. Compilation
 
 Compile the Java file:
-
+```bash
 javac Chimnaz_Task1.java
-
+```
 3. Run the Program
 
 Run the compiled file:
-
+```bash
 java Chimnaz_Task1
+```
+---
+## Example:
 
-###Example:
-
-=== WELCOME TO THE ONLINE RESERVATION SYSTEM ===
+### WELCOME TO THE ONLINE RESERVATION SYSTEM 
 
 --- LOGIN FORM ---
 Enter Login ID: admin
-Enter Password: password123
+Enter Password: infobyte
 Login Successful! Welcome, admin.
 
 --- MAIN MENU ---
@@ -69,17 +70,17 @@ Login Successful! Welcome, admin.
 Choose an option (1-3): 1
 
 --- RESERVATION FORM ---
-Enter Passenger Full Name: Jane Doe
+Enter Passenger Full Name: Chimnaz Abd
 Enter Train Number: 12345
 [Auto-Fill] Train Name found: Express Bullet
 Enter Class Type (e.g., Economy, First): First Class
-Enter Date of Journey (DD/MM/YYYY): 25/08/2026
-Enter From (Departure Place): New York
-Enter Destination Place: Boston
+Enter Date of Journey (DD/MM/YYYY): 25/05/2026
+Enter From (Departure Place): Baku
+Enter Destination Place: Sumqayit
 
 Press 'INSERT' to save your details to the database.
 Type 'INSERT' to confirm: INSERT
 
-Reservation Successful! Your PNR is: PNR54921
+Reservation Successful! Your PNR is: PNR123456
 ---
 🔗Live Demo: [Insert Your Replit Link or Video Demo Link Here]
