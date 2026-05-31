@@ -1,23 +1,23 @@
 # Online Reservation System ✨
 
-This is a simple, command-line Java program that simulates how a train booking and cancellation system works. It uses core Java concepts to manage user logins, ticket bookings, and ticket cancellations.
+This is a simple Java program that simulates how train booking and cancellation system works. It uses core Java concepts to manage user logins, ticket bookings, and ticket cancellations.
 
 ## -What This Project Does
 
-The application has three main sections:
+The application has three main parts:
 
 1. **Login Screen**: Protects the system. Users must enter a valid username and password to get into the main menu.
 2. **Booking Form (Reservation)**: Lets you book a ticket:
    - When you type in a train number, the system automatically finds and displays the name of the train for you.
-   - You type `INSERT` to save the ticket to the system.
-   - The system automatically creates a unique 5-digit PNR number for your ticket.
+   - You need to type `INSERT` to save the ticket to the system.
+   - Then system automatically creates a unique 5-digit PNR number for your ticket.
 3. **Cancellation Form**: Lets you cancel a ticket:
    -You type in your PNR number, and the system shows you all the details of that ticket.
-   -You type `OK` to confirm, and the system deletes the ticket.
+   -You then type `OK` to confirm, and the system deletes the ticket.
 
-## Valid Login Details for Testing
+## Valid Logins for Testing
 
-To log in and test the system, you can use either of these accounts:
+These are the logins with passwords i prepared to log in and test the system.:
 
 | Authorized Login ID | System Password | Clearance Level |
 | :--- | :--- | :--- |
@@ -30,17 +30,30 @@ To log in and test the system, you can use either of these accounts:
 - **HashMaps (Simulated Database)**: Instead of a real database, the program uses Java HashMaps to temporarily store and look up users, trains, and booked tickets.
 - **Input Error Handling**: If you accidentally type letters when the program asks for a number, the program will not crash. It will just ask you to try again.
 
-## Step-by-Step Local Execution Guide
+## Step-by-Step Execution Guide
 
 ### 1. Environment Clone
-Clone the repository containing the source files to your local terminal environment:
 
-### 2. Compilation
+Clone this ripository into your terminal:
 
+```bash
+git clone [https://github.com/chimchim18/OIBSIP.git](https://github.com/chimchim18/OIBSIP.git)
+cd OIBSIP
+```
 
+###2. Compilation
 
-📊 Sample Interactive Output Stream
-Plaintext
+Compile the Java file:
+
+javac Chimnaz_Task1.java
+
+3. Run the Program
+
+Run the compiled file:
+
+java Chimnaz_Task1
+
+###Example:
 
 === WELCOME TO THE ONLINE RESERVATION SYSTEM ===
 
@@ -68,3 +81,5 @@ Press 'INSERT' to save your details to the database.
 Type 'INSERT' to confirm: INSERT
 
 Reservation Successful! Your PNR is: PNR54921
+---
+🔗Live Demo: [Insert Your Replit Link or Video Demo Link Here]
