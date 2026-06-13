@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Chimnaz_Task3{
-    private static double balance = 5000.0; // Starting account balance
+    private static double balance = 5000.0; 
     private static ArrayList<String> history = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
