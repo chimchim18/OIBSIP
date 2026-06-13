@@ -19,14 +19,13 @@ public class Chimnaz_Task2{
                 int userGuess = scanner.nextInt();
 
                 if (userGuess == targetNumber){
-                    int pointsEarned = (6 - attempts) * 20; // Simplifies (5 - attempts + 1) * 20
+                    int pointsEarned = (5 - attempts +1) * 20; 
                     totalScore += pointsEarned;
                     System.out.println("Congratulations! You guessed the number in " + attempts + " attempts.\nPoints earned this round: " + pointsEarned);
                     guessedCorrectly = true;
                     break;
                 }
 
-                // Shorthand if-else to print too high/low and remaining attempts
                 System.out.println((userGuess < targetNumber ? "Too low!" : "Too high!") + " Try again. (" + (5 - attempts) + " attempts left)");
             }
 
@@ -37,7 +36,6 @@ public class Chimnaz_Task2{
             System.out.println("Your current total accumulated score is: " + totalScore + " points.");
             System.out.print("\nDo you want to play another round? (yes/no): ");
 
-            // If input doesn't start with 'y' or 'Y', break the main game loop
             if (!scanner.next().trim().toLowerCase().startsWith("y")){
                 System.out.println("Final game stats -> Rounds played: " + round + " | Total score: " + totalScore + " points.\nThank you for playing! See you next time!");
                 break;
