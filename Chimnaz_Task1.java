@@ -83,9 +83,9 @@ public class Chimnaz_Task1{
 
         boolean exit = false;
         while(!exit){
-            System.out.println("\n--- MAIN MENU ---");
-            System.out.println("1. Book a Ticket (Reservation Form)");
-            System.out.println("2. Cancel a Ticket (Cancellation Form)");
+            System.out.println("\n MAIN MENU ");
+            System.out.println("1. Book a ticket (Reservation form)");
+            System.out.println("2. Cancel a ticket (Cancellation form)");
             System.out.println("3. Exit");
             System.out.print("Choose an option (1-3): ");
 
@@ -114,10 +114,10 @@ public class Chimnaz_Task1{
         trainDatabase.put(55555, new Train(55555, "The Future Express"));}
 
     private static void performLogin(){
-        System.out.println("\n--- LOGIN FORM ---");
-        System.out.print("Enter Login ID: ");
+        System.out.println("\n LOGIN FORM ");
+        System.out.print("Enter login ID: ");
         String loginId = scanner.nextLine().trim();
-        System.out.print("Enter Password: ");
+        System.out.print("Enter password: ");
         String password = scanner.nextLine().trim();
 
         User user = userDatabase.get(loginId);
