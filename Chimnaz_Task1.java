@@ -29,6 +29,7 @@ class Train{
 }
 
 class Ticket{
+    private String pnrNumber;
     private String passengerName;
     private int trainNumber;
     private String trainName;
@@ -36,18 +37,17 @@ class Ticket{
     private String dateOfJourney;
     private String fromPlace;
     private String destination;
-    private String pnrNumber;
 
-    public Ticket(String passengerName, int trainNumber, String trainName,
-                  String classType, String dateOfJourney, String fromPlace, String destination,String pnrNumber){
+    public Ticket(String pnrNumber, String passengerName, int trainNumber, String trainName,
+                  String classType, String dateOfJourney, String fromPlace, String destination){
+        this.pnrNumber = pnrNumber;
         this.passengerName = passengerName;
         this.trainNumber = trainNumber;
         this.trainName = trainName;
         this.classType = classType;
         this.dateOfJourney = dateOfJourney;
         this.fromPlace = fromPlace;
-        this.destination = destination;
-        this.pnrNumber = pnrNumber;}
+        this.destination = destination;}
 
     public String getPnrNumber(){
         return pnrNumber;}
@@ -123,41 +123,41 @@ public class Chimnaz_Task1{
         User user = userDatabase.get(loginId);
         if(user != null && user.checkPassword(password)){
             currentUser = user;
-            System.out.println("Login Successful! Welcome, " + loginId + ".");
+            System.out.println("Login successful! Welcome, " + loginId + ".");
         }else{
-            System.out.println("Invalid Login ID or Password. Please try again.");}
+            System.out.println("Invalid login ID or password. Please try again.");}
     }
 
     private static void openReservationForm(){
-        System.out.println("\n--- RESERVATION FORM ---");
-        System.out.print("Enter Passenger Full Name: ");
+        System.out.println("\n RESERVATION FORM ");
+        System.out.print("Enter passenger full name: ");
         String passengerName = scanner.nextLine().trim();
 
-        System.out.print("Enter Train Number: ");
+        System.out.print("Enter train number: ");
         int trainNumber = getIntegerInput();
 
         Train train = trainDatabase.get(trainNumber);
         String trainName;
         if(train != null){
             trainName = train.getTrainName();
-            System.out.println("[Auto-Fill] Train Name found: " + trainName);
+            System.out.println("[Auto-Fill] Train name found: " + trainName);
         }else{
-            System.out.println("Train number not found. Using 'Unknown Train'.");
-            trainName = "Unknown Train";}
+            System.out.println("Train number not found. Using 'Unknown train'.");
+            trainName = "Unknown train";}
 
-        System.out.print("Enter Class Type (e.g., Economy, First): ");
+        System.out.print("Enter class type (e.g., economy, first): ");
         String classType = scanner.nextLine().trim();
 
-        System.out.print("Enter Date of Journey (DD/MM/YYYY): ");
+        System.out.print("Enter date of journey (dd/mm/yyyy): ");
         String dateOfJourney = scanner.nextLine().trim();
 
-        System.out.print("Enter From (Departure Place): ");
+        System.out.print("Enter from (Departure place): ");
         String fromPlace = scanner.nextLine().trim();
 
-        System.out.print("Enter Destination Place: ");
+        System.out.print("Enter destination place: ");
         String destination = scanner.nextLine().trim();
 
-        System.out.println("\nPress 'INSERT' to save your details to the database.");
+        System.out.println("\nPress 'INSERT' to save your details to database.");
         System.out.print("Type 'INSERT' to confirm: ");
         String confirm = scanner.nextLine().trim();
 
@@ -167,14 +167,14 @@ public class Chimnaz_Task1{
                     classType, dateOfJourney, fromPlace, destination);
             reservationDatabase.put(pnrNumber, newTicket);
 
-            System.out.println("\nReservation Successful! Your PNR is: " + pnrNumber);
+            System.out.println("\nReservation successful! Your PNR is: " + pnrNumber);
         }else{
-            System.out.println("Action canceled. Reservation data not inserted.");}
+            System.out.println("Action cancelled. Reservation data not inserted.");}
     }
 
     private static void openCancellationForm(){
-        System.out.println("\n--- CANCELLATION FORM ---");
-        System.out.print("Enter your PNR Number: ");
+        System.out.println("\n CANCELLATION FORM ");
+        System.out.print("Enter your PNR number: ");
         String pnr = scanner.nextLine().trim();
 
         Ticket ticket = reservationDatabase.get(pnr);
@@ -186,7 +186,7 @@ public class Chimnaz_Task1{
 
             if(confirm.equalsIgnoreCase("OK")){
                 reservationDatabase.remove(pnr);
-                System.out.println("Cancellation Confirmed. Ticket with PNR " + pnr + " has been deleted.");
+                System.out.println("Cancellation confirmed. Ticket with PNR " + pnr + " has been deleted.");
             } else{
                 System.out.println("Cancellation aborted.");}
         }else{
