@@ -1,4 +1,4 @@
-# Oasis Infobyte Java Development Internship (OIBSIP)✨
+# Oasis Infobyte Java Development Internship✨
 
 Welcome to my submission repository!
 
