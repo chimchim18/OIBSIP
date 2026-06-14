@@ -13,7 +13,7 @@ public class Chimnaz_Task3{
         System.out.print("Enter User PIN: ");
         String pin = scanner.nextLine();
 
-        if (userId.equals("admin") && pin.equals("1234")) {
+        if (userId.equals("ChimnazAbd") && pin.equals("7070")) {
             System.out.println("\nLogin Successful! Access Granted.");
             showMenu();
         } else {
