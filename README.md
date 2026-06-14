@@ -13,8 +13,15 @@ Welcome to my submission repository!
 ![Slide 5 - Setup and Logins](Slides/Slide5.png)
 
 ![Slide 6 - Terminal Launch Commands](Slides/Slide6.png)
+```bash
+git clone https://github.com/chimchim18/OIBSIP.git
+cd OIBSIP
+javac Chimnaz_Task1.java Chimnaz_Task2.java Chimnaz_Task3.java
+java Chimnaz_Task1
+```
 
 ![Slide 7 - Thank You!](Slides/Slide7.png)
+
 
 ---
 🔗Live Demo: 
